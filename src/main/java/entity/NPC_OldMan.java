@@ -13,6 +13,7 @@ public class NPC_OldMan extends Entity {
         speed = 1;
 
         getOldManImage();
+        setDialogue();
     }
 
     public void getOldManImage() {
@@ -25,6 +26,12 @@ public class NPC_OldMan extends Entity {
         left2 = setUpEntityImage("/npc/oldman_left_2");
         right1 = setUpEntityImage("/npc/oldman_right_1");
         right2 = setUpEntityImage("/npc/oldman_right_2");
+    }
+
+    public void setDialogue() {
+        dialogues.add(0, "Terrible!");
+        dialogues.add(1, "Take this! You'll need it!");
+        dialogues.add(2, "I used to be an adventurer like you...");
     }
 
     /**
@@ -55,8 +62,11 @@ public class NPC_OldMan extends Entity {
 
             actionLockCounter = 0; //reset action counter
         }
-
     }
 
+    @Override
+    public void speak() {
+        super.speak();
+    }
 
 }
