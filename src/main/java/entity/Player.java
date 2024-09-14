@@ -11,6 +11,7 @@ import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.IOException;
+
 //Can use: https://www.piskelapp.com/p/create/sprite to create sprites
 public class Player extends Entity {
 
@@ -133,9 +134,13 @@ public class Player extends Entity {
 
     public void interactNPC(int index) {
         if (index != 999) {
-            System.out.println("HIT NPC");
-
+            if (gamePanel.keyHandler.enterPressed) {
+                //If we hit NPC, change state
+                gamePanel.gameState = gamePanel.dialogState;
+                gamePanel.npc[index].speak();
+            }
         }
+        gamePanel.keyHandler.enterPressed = false;
     }
 
     public void draw(Graphics2D graphics2D) {

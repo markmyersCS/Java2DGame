@@ -9,6 +9,8 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 //Can use: https://www.piskelapp.com/p/create/sprite to create sprites
 public class Entity {
@@ -26,6 +28,8 @@ public class Entity {
     public int solidAreaDefaultYPosition;
     public boolean collisionOn = false;
     public int actionLockCounter = 0; //counter for adding time between action updates
+    ArrayList<String> dialogues = new ArrayList<>();
+    int dialogueIndex = 0;
 
     public Entity(GamePanel gamePanel) {
         this.gamePanel = gamePanel;
@@ -109,12 +113,38 @@ public class Entity {
     /**
      * Used for AI of entities
      */
-    public void setAction(){}
+    public void setAction() {
+    }
+
+    public void speak() {
+        if (dialogues != null && dialogues.size() <= dialogueIndex) {
+            dialogueIndex = 0;
+        }
+        if (dialogues != null) {
+            gamePanel.ui.currentDialogue = dialogues.get(dialogueIndex);
+            dialogueIndex++;
+        }
+        //While speaking, have npc face character.
+        switch (gamePanel.player.direction) {
+            case "up":
+                direction = "down";
+                break;
+            case "down":
+                direction = "up";
+                break;
+            case "left":
+                direction = "right";
+                break;
+            case "right":
+                direction = "left";
+                break;
+        }
+    }
 
     /**
      * Updates entity position/direction
      */
-    public void update(){
+    public void update() {
         setAction();//uses subclass implementation (it is priority)
         collisionOn = false;
         gamePanel.collisionChecker.checkTile(this);
