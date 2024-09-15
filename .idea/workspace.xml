@@ -5,11 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="71fbf077-c905-411d-becf-fe3dd854d7cd" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/object/OBJ_Heart.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/fonts/ARCADECLASSIC.TTF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/KeyHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/UI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/GamePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/GamePanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/object/SuperObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/object/SuperObject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/main/UI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/UI.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -60,11 +62,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\CodingProjects\Java2DGame\src\main\resources\fonts" />
       <recent name="E:\CodingProjects\Java2DGame\src\main\resources\npc" />
       <recent name="E:\CodingProjects\Java2DGame\src\main\resources\maps" />
       <recent name="E:\CodingProjects\Java2DGame\src\main\resources\sound" />
       <recent name="E:\CodingProjects\Java2DGame\src\main\resources\objects" />
-      <recent name="E:\CodingProjects\Java2DGame\src\main\resources\tiles" />
     </key>
   </component>
   <component name="SharedIndexes">

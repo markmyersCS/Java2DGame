@@ -30,6 +30,9 @@ public class Entity {
     public int actionLockCounter = 0; //counter for adding time between action updates
     ArrayList<String> dialogues = new ArrayList<>();
     int dialogueIndex = 0;
+    //Character Status
+    public int maxHealth;
+    public int health;
 
     public Entity(GamePanel gamePanel) {
         this.gamePanel = gamePanel;

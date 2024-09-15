@@ -10,6 +10,8 @@ import java.awt.image.BufferedImage;
 //TODO NEED TO USE GIMP to create own images/assets
 public class SuperObject {
     public BufferedImage bufferedImage;
+    public BufferedImage bufferedImage2;
+    public BufferedImage bufferedImage3;
     public String name;
     public boolean collision = false;
     public int worldXPosition;

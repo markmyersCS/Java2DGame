@@ -45,6 +45,10 @@ public class Player extends Entity {
 
         speed = 4;
         direction = "down";
+
+        //Player Status: 1 health is half hear, 2 health is full heart
+        maxHealth = 6;
+        health = maxHealth;
     }
 
     public void getPlayerImage() {
