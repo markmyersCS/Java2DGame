@@ -14,9 +14,9 @@ import java.awt.Graphics2D;
 public class GamePanel extends JPanel implements Runnable {
 
     //Screen Settings
-    final int originalTitleSize = 16; //16x16 tiles
+    final int originalTileSize = 16; //16x16 tiles
     final int scale = 3; //Scale to fix too small sprites/icons
-    public final int tileSize = originalTitleSize * scale; //this will scale sprites/icons
+    public final int tileSize = originalTileSize * scale; //this will scale sprites/icons
     public final int maxScreenCol = 16;
     public final int maxScreenRow = 12;
     public final int screenWidth = tileSize * maxScreenCol; //768 pixels width
@@ -46,10 +46,10 @@ public class GamePanel extends JPanel implements Runnable {
 
     //Game State
     public int gameState; //are we paused, playing, in a menu, etc.?
+    public final int titleState = 0;
     public final int playState = 1;
     public final int pauseState = 2;
     public final int dialogState = 3;
-
 
     public GamePanel() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -63,7 +63,8 @@ public class GamePanel extends JPanel implements Runnable {
         assetSetter.setObject();
         assetSetter.setNPC();
 //        playGameMusic(0);//Play main game music//TODO UNCOMMENT FOR MUSIC
-        gameState = playState;
+//        gameState = playState;
+        gameState = titleState; //default to title state not play state
     }
 
     public void startGameThread() {
@@ -132,27 +133,34 @@ public class GamePanel extends JPanel implements Runnable {
             drawStart = System.nanoTime();
         }
 
-        //Tile
-        tileManager.draw(graphics2D); //need to draw tiles first because of layering
-        //Object
-        for (SuperObject superObject : object) {
-            if (superObject != null) {
-                superObject.draw(graphics2D, this);
-            }
+        //Title Screen
+        if (gameState == titleState) {
+            ui.draw(graphics2D);
         }
-
-        //NPC
-        for (int i = 0; i < npc.length; i++) {
-            if (npc[i] != null) {
-                npc[i].draw(graphics2D);
+        //Everything else
+        else {
+            //Tile
+            tileManager.draw(graphics2D); //need to draw tiles first because of layering
+            //Object
+            for (SuperObject superObject : object) {
+                if (superObject != null) {
+                    superObject.draw(graphics2D, this);
+                }
             }
+
+            //NPC
+            for (int i = 0; i < npc.length; i++) {
+                if (npc[i] != null) {
+                    npc[i].draw(graphics2D);
+                }
+            }
+
+            //Player
+            player.draw(graphics2D);
+
+            //UI
+            ui.draw(graphics2D);
         }
-
-        //Player
-        player.draw(graphics2D);
-
-        //UI
-        ui.draw(graphics2D);
 
         //DEBUG
         if (keyHandler.debug) {
